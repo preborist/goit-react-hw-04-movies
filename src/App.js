@@ -32,9 +32,12 @@ const App = () => (
         <Route path={routes.movies} component={MoviesPage} />
         <Redirect to={routes.home} />
       </Switch>
-
-      <Route path={routes.movieCast} component={Cast} />
-      <Route path={routes.movieReviews} component={Reviews} />
+    </Suspense>
+    <Suspense fallback={<h2>Loading...</h2>}>
+      <Switch>
+        <Route path={routes.movieCast} component={Cast} />
+        <Route path={routes.movieReviews} component={Reviews} />
+      </Switch>
     </Suspense>
   </>
 );
